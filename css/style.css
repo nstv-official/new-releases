@@ -1,0 +1,1193 @@
+/* ===========================
+   NSTV Official Website
+   style.css
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#0f172a;
+    color:#ffffff;
+    line-height:1.7;
+}
+
+/* ===========================
+   Container
+=========================== */
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#111827;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:70px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+    border-radius:10px;
+}
+
+.logo span{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#22c55e;
+}
+
+/* ===========================
+   Hero
+=========================== */
+
+.hero{
+    padding:80px 0;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 360px;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    background:#1e293b;
+    border-radius:30px;
+    color:#22c55e;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:58px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#cbd5e1;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 30px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#22c55e;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#16a34a;
+}
+
+.btn-outline{
+    border:2px solid #22c55e;
+    color:#22c55e;
+}
+
+.btn-outline:hover{
+    background:#22c55e;
+    color:#fff;
+}
+
+/* ===========================
+   Hero Card
+=========================== */
+
+.hero-card{
+
+    background:#1e293b;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+
+}
+
+.hero-card img{
+
+    width:120px;
+
+    margin-bottom:20px;
+
+}
+
+.hero-card h2{
+
+    margin-bottom:20px;
+
+}
+
+.hero-card ul{
+
+    list-style:none;
+
+}
+
+.hero-card li{
+
+    padding:8px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ===========================
+   Stats
+=========================== */
+
+.stats{
+
+    padding:70px 0;
+
+}
+
+.stats .container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+}
+
+.stat{
+
+    background:#1e293b;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+.stat h2{
+
+    color:#22c55e;
+
+    font-size:38px;
+
+}
+
+.stat p{
+
+    color:#cbd5e1;
+
+}
+
+/* ===========================
+   Features
+=========================== */
+
+.features{
+
+    padding:80px 0;
+
+}
+
+.features h2{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.feature{
+
+    background:#1e293b;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    transition:.3s;
+
+}
+
+.feature:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.feature h3{
+
+    margin-bottom:15px;
+
+}
+
+.feature p{
+
+    color:#cbd5e1;
+
+}
+
+/* ===========================
+   Screenshot
+=========================== */
+
+.screenshots{
+
+    padding:80px 0;
+
+}
+
+.screenshots h2{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.screens{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.screens img{
+
+    width:100%;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.screens img:hover{
+
+    transform:scale(1.04);
+
+}
+
+/* ===========================
+   Download
+=========================== */
+
+.download{
+
+    padding:80px 0;
+
+    text-align:center;
+
+}
+
+.download p{
+
+    margin:20px 0 35px;
+
+    color:#cbd5e1;
+
+}
+
+.download-button{
+
+    display:inline-block;
+
+    background:#22c55e;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:18px 40px;
+
+    border-radius:12px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.download-button:hover{
+
+    background:#16a34a;
+
+}
+
+/* ===========================
+   FAQ
+=========================== */
+
+.faq{
+
+    padding:80px 0;
+
+}
+
+.faq h2{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.faq-item{
+
+    background:#1e293b;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+}
+
+.faq-item h3{
+
+    margin-bottom:10px;
+
+}
+
+.faq-item p{
+
+    color:#cbd5e1;
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer{
+
+    margin-top:60px;
+
+    padding:30px 0;
+
+    background:#111827;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+}
+
+footer p{
+
+    margin:6px 0;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:900px){
+
+.hero-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.hero{
+
+text-align:center;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.menu{
+
+display:none;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+padding:60px 0;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.download-button{
+
+width:100%;
+
+}
+
+.btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+}
+
+/* ===== Screenshot Slider ===== */
+
+.slide{
+    display:none;
+    width:100%;
+    border-radius:20px;
+}
+
+.slide.active{
+    display:block;
+}
+
+.slides{
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+.slide{
+    width:100%;
+    display:none;
+}
+
+.slide.active{
+    display:block;
+}
+
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:#22c55e;
+    color:#fff;
+    cursor:pointer;
+    font-size:28px;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+.prev{
+    left:-25px;
+}
+
+.next{
+    right:-60px;
+}
+
+.nav:hover{
+    background:#16a34a;
+}
+
+/* ===== Hero Baru ===== */
+
+.hero{
+    padding:60px 0;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 320px;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-left h1{
+    font-size:60px;
+    margin:15px 0;
+}
+
+.hero-left p{
+    color:#cbd5e1;
+    margin-bottom:30px;
+}
+
+.hero-info{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+}
+
+.hero-info div{
+    background:#1e293b;
+    padding:15px 22px;
+    border-radius:12px;
+    text-align:center;
+    min-width:90px;
+}
+
+.hero-info strong{
+    display:block;
+    color:#22c55e;
+    margin-bottom:5px;
+}
+
+.phone{
+    width:280px;
+    margin:auto;
+    background:#111827;
+    padding:10px;
+    border-radius:35px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.phone img{
+    width:100%;
+    border-radius:25px;
+    display:block;
+}
+
+@media(max-width:900px){
+
+.hero-grid{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero-info{
+
+justify-content:center;
+
+}
+
+}
+
+/* =====================================================
+   NSTV - FINAL MOBILE POLISH
+   Tambahkan di PALING BAWAH style.css
+===================================================== */
+
+/* ---------- Header ---------- */
+
+.logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+}
+
+.logo span {
+    font-size: 22px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    padding: 55px 0 45px;
+}
+
+.hero-grid {
+    gap: 45px;
+}
+
+.hero-left h1 {
+    font-size: 58px;
+    letter-spacing: -2px;
+}
+
+.hero-left p {
+    max-width: 560px;
+}
+
+.hero-info {
+    gap: 12px;
+}
+
+.hero-info div {
+    min-width: 100px;
+    padding: 14px 18px;
+}
+
+.phone {
+    width: 270px;
+}
+
+/* ---------- Download button ---------- */
+
+.download-button {
+    box-shadow: 0 10px 30px rgba(34, 197, 94, .20);
+}
+
+/* ---------- Screenshot section ---------- */
+
+.screenshots {
+    padding: 55px 0 70px;
+}
+
+.screenshots h2 {
+    margin-bottom: 28px;
+}
+
+.slider {
+    width: min(240px, 68vw);
+}
+
+.slides {
+    overflow: hidden;
+    border-radius: 22px;
+    background: #111827;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
+}
+
+.slide {
+    width: 100%;
+    height: auto;
+    display: none;
+    border-radius: 22px;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* ---------- Slider arrows ---------- */
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: #22c55e;
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 42px;
+    padding: 0;
+    z-index: 5;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .35);
+}
+
+.nav:hover {
+    background: #16a34a;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.prev {
+    left: -20px;
+}
+
+.next {
+    right: -20px;
+}
+
+/* ---------- Download section ---------- */
+
+.download {
+    padding: 65px 0 75px;
+}
+
+.download h2 {
+    font-size: 30px;
+}
+
+.download p {
+    max-width: 600px;
+    margin: 15px auto 30px;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 88%;
+    }
+
+    /* Header */
+
+    nav {
+        height: 64px;
+    }
+
+    .logo img {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+
+    .logo span {
+        font-size: 20px;
+    }
+
+    /* Hero */
+
+    .hero {
+        padding: 48px 0 35px;
+    }
+
+    .hero-grid {
+        gap: 40px;
+    }
+
+    .hero-left h1 {
+        font-size: 52px;
+        margin: 14px 0;
+    }
+
+    .hero-left p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .hero-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+        width: 100%;
+    }
+
+    .hero-info div {
+        min-width: 0;
+        padding: 13px 7px;
+        border-radius: 14px;
+    }
+
+    .hero-info strong {
+        font-size: 14px;
+    }
+
+    .hero-info span {
+        font-size: 14px;
+    }
+
+    .hero-right {
+        margin-top: 5px;
+    }
+
+    .phone {
+        width: min(250px, 72vw);
+    }
+
+    /* Download button */
+
+    .download-button {
+        width: 100%;
+        padding: 17px 20px;
+        font-size: 18px;
+    }
+
+    /* Screenshot */
+
+    .screenshots {
+        padding: 45px 0 55px;
+    }
+
+    .screenshots h2 {
+        font-size: 25px;
+        margin-bottom: 22px;
+    }
+
+    .slider {
+    width: min(240px, 68vw);
+   }
+
+    .slides {
+        border-radius: 19px;
+    }
+
+    .slide {
+        border-radius: 19px;
+    }
+
+    .nav {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 21px;
+    }
+
+    .prev {
+        left: -17px;
+    }
+
+    .next {
+        right: -17px;
+    }
+
+    /* Download section */
+
+    .download {
+        padding: 55px 0 65px;
+    }
+
+    .download h2 {
+        font-size: 27px;
+    }
+
+    .download p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 28px 0;
+        font-size: 14px;
+    }
+}
+
+/* ---------- Very small phones ---------- */
+
+@media (max-width: 380px) {
+
+    .hero-left h1 {
+        font-size: 46px;
+    }
+
+    .hero-info div {
+        padding: 11px 5px;
+    }
+
+    .hero-info strong,
+    .hero-info span {
+        font-size: 12px;
+    }
+
+    .phone {
+        width: 230px;
+    }
+
+    .slider {
+    width: 220px;
+   }
+
+    .nav {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 19px;
+    }
+
+    .prev {
+        left: -15px;
+    }
+
+    .next {
+        right: -15px;
+    }
+}
+
+/* ===== Perbaikan gambar logo pada Download ===== */
+
+.download img {
+    display: block;
+    width: 180px !important;
+    height: auto !important;
+    max-width: 55vw !important;
+    margin: 25px auto !important;
+    border-radius: 20px;
+    object-fit: contain;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+
+    .download img {
+        width: 150px !important;
+        max-width: 45vw !important;
+        margin: 20px auto !important;
+    }
+
+}
+
+/* =====================================================
+   NSTV - PANDUAN DOWNLOAD & INSTAL
+===================================================== */
+
+.install-guide {
+    padding: 70px 0 80px;
+}
+
+.guide-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 35px;
+}
+
+.guide-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #1e293b;
+    color: #22c55e;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.guide-header h2 {
+    margin: 0 0 15px;
+    font-size: 32px;
+}
+
+.guide-header p {
+    margin: 0;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+/* ---------- Accordion ---------- */
+
+.guide-box {
+    max-width: 720px;
+    margin: auto;
+}
+
+.guide-box details {
+    background: #172338;
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.guide-box summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    color: #fff;
+}
+
+.guide-box summary::-webkit-details-marker {
+    display: none;
+}
+
+.guide-box summary::after {
+    content: "+";
+    margin-left: auto;
+    font-size: 24px;
+    color: #22c55e;
+}
+
+.guide-box details[open] summary::after {
+    content: "−";
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+    color: #fff;
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.guide-content {
+    padding: 0 20px 20px 68px;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.guide-content p {
+    margin: 0 0 12px;
+}
+
+.guide-content p:last-child {
+    margin-bottom: 0;
+}
+
+.guide-content strong {
+    color: #fff;
+}
+
+/* ---------- Security note ---------- */
+
+.security-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    max-width: 720px;
+
+    margin: 25px auto 0;
+    padding: 20px;
+
+    background: rgba(30,41,59,.65);
+
+    border: 1px solid rgba(34,197,94,.15);
+
+    border-radius: 16px;
+}
+
+.security-icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.security-note strong {
+    color: #22c55e;
+}
+
+.security-note p {
+    margin: 8px 0 0;
+    color: #cbd5e1;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+
+    .install-guide {
+        padding: 55px 0 65px;
+    }
+
+    .guide-header h2 {
+        font-size: 27px;
+    }
+
+    .guide-header p {
+        font-size: 15px;
+    }
+
+    .guide-box summary {
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .guide-content {
+        padding: 0 16px 18px 62px;
+        font-size: 14px;
+    }
+
+    .security-note {
+        padding: 17px;
+    }
+
+    .security-note p {
+        font-size: 13px;
+    }
+
+}
