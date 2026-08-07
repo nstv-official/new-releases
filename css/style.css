@@ -1191,3 +1191,160 @@ justify-content:center;
     }
 
 }
+/* =========================================
+   NSTV - LATEST RELEASE
+========================================= */
+
+.latest-release-section {
+    width: 100%;
+    max-width: 850px;
+    margin: 70px auto 40px;
+    padding: 0 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.latest-release-title {
+    margin-bottom: 12px;
+}
+
+.latest-release-title span {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.latest-release-description {
+    margin: 0 auto 25px;
+    max-width: 600px;
+    color: #cbd5e1;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Kotak release dari JavaScript */
+
+#latest-download {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+/* Override tampilan kotak release */
+
+#latest-download > div {
+    margin-top: 20px !important;
+    padding: 28px 22px !important;
+    border-radius: 22px !important;
+    background: #172338 !important;
+    border: 1px solid rgba(34, 197, 94, 0.15) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Badge versi */
+
+#latest-download > div > div:first-child {
+    display: inline-block !important;
+    padding: 7px 16px !important;
+    border-radius: 30px !important;
+    background: #202e44 !important;
+    color: #22c55e !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+/* Nama versi */
+
+#latest-download h3 {
+    margin: 12px 0 8px !important;
+    color: #ffffff !important;
+    font-size: 25px !important;
+}
+
+/* Nama file */
+
+#latest-download h3 + p {
+    color: #aebbd0 !important;
+    font-size: 14px !important;
+    word-break: break-word;
+}
+
+/* Statistik download */
+
+#latest-download p:last-of-type {
+    color: #22c55e !important;
+    margin: 10px 0 20px !important;
+}
+
+/* Tombol download */
+
+.latest-download-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 240px;
+    padding: 15px 28px !important;
+
+    border-radius: 12px !important;
+
+    background: #22c55e !important;
+    color: #ffffff !important;
+
+    font-size: 16px !important;
+    font-weight: 700 !important;
+
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.latest-download-button:hover {
+    background: #16a34a !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.25);
+}
+
+.latest-download-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .latest-release-section {
+        margin-top: 50px;
+        padding: 0 15px;
+    }
+
+    .latest-release-title span {
+        font-size: 26px;
+    }
+
+    .latest-release-description {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    #latest-download > div {
+        padding: 24px 16px !important;
+        border-radius: 18px !important;
+    }
+
+    #latest-download h3 {
+        font-size: 22px !important;
+    }
+
+    .latest-download-button {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+}
