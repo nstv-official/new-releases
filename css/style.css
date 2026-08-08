@@ -1440,3 +1440,261 @@ justify-content:center;
     }
 
 }
+
+/* =====================================================
+   NSTV - HERO MODERN + PHONE MOCKUP
+===================================================== */
+
+@media (min-width: 901px) {
+
+    .hero {
+        padding: 55px 0 45px;
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 55px;
+        align-items: center;
+    }
+
+    .hero-left {
+        min-height: auto;
+        padding-right: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-left h1 {
+        font-size: 58px;
+        margin: 8px 0 18px;
+        line-height: 1.1;
+    }
+
+    .hero-left p {
+        max-width: 560px;
+        margin-bottom: 25px;
+        font-size: 17px;
+        color: #cbd5e1;
+    }
+
+    .hero-info {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .hero-info div {
+        min-width: 105px;
+        padding: 14px 18px;
+        border-radius: 14px;
+        background: #1e293b;
+        text-align: center;
+    }
+
+    .hero-info strong {
+        display: block;
+        color: #22c55e;
+        margin-bottom: 4px;
+    }
+
+    .hero-info span {
+        color: #fff;
+    }
+
+    .hero-left > .download-button {
+        width: fit-content;
+        min-width: 220px;
+    }
+
+    /* =========================
+       PHONE MOCKUP
+    ========================= */
+
+    .hero-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: auto;
+    }
+
+    .phone {
+        position: relative;
+        width: 285px;
+        padding: 10px;
+        background: #050b16;
+        border: 2px solid #26344a;
+        border-radius: 38px;
+        box-shadow:
+            0 25px 60px rgba(0, 0, 0, .45),
+            0 0 35px rgba(34, 197, 94, .08);
+    }
+
+    .phone img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 29px;
+        object-fit: cover;
+    }
+
+    /* Speaker / kamera bagian atas HP */
+    .phone::before {
+        content: "";
+        position: absolute;
+        top: 17px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 65px;
+        height: 6px;
+        background: #050505;
+        border-radius: 20px;
+        z-index: 5;
+        opacity: .9;
+    }
+
+    /* Tombol/home indicator */
+    .phone::after {
+        content: "";
+        position: absolute;
+        bottom: 17px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75px;
+        height: 4px;
+        background: rgba(255,255,255,.85);
+        border-radius: 10px;
+        z-index: 5;
+    }
+
+    /* Jangan tampilkan elemen kosong */
+    .phone-speaker,
+    .phone-home {
+        display: none;
+    }
+
+    /* Download terbaru jangan membuat hero terlalu panjang */
+    .latest-release-section {
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .latest-release-title span {
+        font-size: 24px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .hero {
+        padding: 45px 0 35px;
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .hero-left {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-left h1 {
+        font-size: 46px;
+        margin: 8px 0 15px;
+    }
+
+    .hero-left p {
+        max-width: 560px;
+        margin-bottom: 25px;
+    }
+
+    .hero-info {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .hero-left > .download-button {
+        width: min(100%, 360px);
+    }
+
+    .hero-right {
+        order: 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    .phone {
+        width: min(260px, 72vw);
+    }
+
+    .latest-release-section {
+        width: 100%;
+        margin-top: 30px;
+        padding: 0;
+    }
+
+}
+
+
+/* =====================================================
+   HP KECIL
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 35px 0 30px;
+    }
+
+    .hero-grid {
+        gap: 30px;
+    }
+
+    .hero-left h1 {
+        font-size: 42px;
+    }
+
+    .hero-left p {
+        font-size: 15px;
+    }
+
+    .hero-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .hero-info div {
+        min-width: 0;
+        padding: 12px 6px;
+    }
+
+    .hero-info strong,
+    .hero-info span {
+        font-size: 13px;
+    }
+
+    .phone {
+        width: min(240px, 68vw);
+        border-radius: 32px;
+    }
+
+    .phone img {
+        border-radius: 24px;
+    }
+
+}
