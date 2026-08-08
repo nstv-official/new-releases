@@ -1,0 +1,116 @@
+/* =====================================================
+   NSTV - LAYOUT FIX v2
+   Memperbaiki efek halaman melebar / horizontal scroll.
+===================================================== */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+.hero,
+.hero-grid,
+.hero-left,
+.hero-right {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.phone {
+    max-width: min(285px, 100%);
+}
+
+.phone img {
+    max-width: 100%;
+    height: auto;
+}
+
+.screenshots .slider {
+    width: min(100%, 720px) !important;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 52px;
+    gap: 0 !important;
+    position: relative;
+}
+
+.screenshots .slides {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    overflow: hidden;
+}
+
+.screenshots .slide {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 0 !important;
+}
+
+.screenshots .nav {
+    position: absolute !important;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    margin: 0;
+}
+
+.screenshots .nav:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.screenshots .prev {
+    left: 5px !important;
+}
+
+.screenshots .next {
+    right: 5px !important;
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .hero-grid {
+        width: 100%;
+    }
+
+    .phone {
+        width: min(230px, 68vw);
+    }
+
+    .screenshots .slider {
+        width: min(100%, 340px) !important;
+        padding: 0 45px;
+    }
+
+    .screenshots .slides,
+    .screenshots .slide {
+        max-width: 210px !important;
+    }
+
+    .screenshots .nav {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    .screenshots .prev {
+        left: 3px !important;
+    }
+
+    .screenshots .next {
+        right: 3px !important;
+    }
+}
