@@ -2003,3 +2003,34 @@ justify-content:center;
     }
 
 }
+
+/* =========================================
+   FIX SCREENSHOT AGAR BENAR-BENAR DI TENGAH
+========================================= */
+
+.screenshots .slider {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.screenshots .slides {
+    width: 100% !important;
+    max-width: 900px !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    margin: 0 auto !important;
+}
+
+.screenshots .slide {
+    margin: 0 auto !important;
+}
+
+/* Tombol kiri dan kanan */
+.screenshots .nav {
+    flex-shrink: 0 !important;
+}
