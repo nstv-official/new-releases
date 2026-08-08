@@ -251,96 +251,40 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(release => {
 
-        // Cari file APK
-        const apk = release.assets.find(asset =>
-            asset.name.toLowerCase().endsWith(".apk")
-        );
+    // ==============================
+    // TAMPILKAN VERSI TERBARU
+    // ==============================
+    const versionElement = document.getElementById("latest-version");
 
-        if (!apk) {
-            throw new Error("File APK tidak ditemukan.");
+    if (versionElement) {
+        versionElement.textContent =
+            `Versi Terbaru ${release.tag_name.replace(/^v/, "")}`;
+    }
+
+
+    // ==============================
+    // CARI FILE APK
+    // ==============================
+    const apk = release.assets.find(file =>
+        file.name.toLowerCase().endsWith(".apk")
+    );
+
+
+    // ==============================
+    // TOMBOL DOWNLOAD APK TERBARU
+    // ==============================
+    if (apk) {
+
+        const downloadButton =
+            document.getElementById("latest-download");
+
+        if (downloadButton) {
+            downloadButton.href = apk.browser_download_url;
         }
 
-        // Format jumlah download
-        const downloadCount = apk.download_count.toLocaleString("id-ID");
+    }
 
-        // Nama versi
-        const version = release.tag_name;
-
-        // Link APK GitHub
-        const downloadUrl = apk.browser_download_url;
-
-        latestBox.innerHTML = `
-            <div style="
-                margin-top:25px;
-                padding:25px 20px;
-                border-radius:20px;
-                background:#172338;
-                border:1px solid rgba(34,197,94,.18);
-                text-align:center;
-            ">
-
-                <div style="
-                    display:inline-block;
-                    padding:7px 15px;
-                    border-radius:30px;
-                    background:#1e293b;
-                    color:#22c55e;
-                    font-size:14px;
-                    font-weight:600;
-                    margin-bottom:12px;
-                ">
-                    ✨ VERSI TERBARU
-                </div>
-
-                <h3 style="
-                    margin:5px 0 8px;
-                    color:#ffffff;
-                    font-size:24px;
-                ">
-                    NSTV ${version}
-                </h3>
-
-                <p style="
-                    margin:0 0 8px;
-                    color:#cbd5e1;
-                    font-size:14px;
-                ">
-                    ${apk.name}
-                </p>
-
-                <p style="
-                    margin:0 0 20px;
-                    color:#22c55e;
-                    font-size:15px;
-                    font-weight:600;
-                ">
-                    📥 ${downloadCount} Downloads
-                </p>
-
-                <a
-                    href="${downloadUrl}"
-                    class="latest-download-button"
-                    target="_blank"
-                    rel="noopener"
-                    style="
-                        display:inline-block;
-                        padding:15px 28px;
-                        border-radius:12px;
-                        background:#22c55e;
-                        color:#ffffff;
-                        text-decoration:none;
-                        font-size:16px;
-                        font-weight:700;
-                        transition:.2s;
-                    "
-                >
-                    ↓ DOWNLOAD ${version}
-                </a>
-
-            </div>
-        `;
-
-    })
+})
     .catch(error => {
 
         console.error("NSTV GitHub Release:", error);
