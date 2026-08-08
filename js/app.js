@@ -218,24 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
         oldDownloadButton.nextSibling
     );
 
-    // Loading
-    latestBox.innerHTML = `
-        <div style="
-            margin-top:20px;
-            padding:20px;
-            border-radius:18px;
-            background:#172338;
-            text-align:center;
-        ">
-            <div style="
-                font-size:15px;
-                color:#cbd5e1;
-            ">
-                Memeriksa versi terbaru...
-            </div>
-        </div>
-    `;
-
     // Ambil release terbaru dari GitHub
     fetch(
         `https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`
