@@ -1348,3 +1348,95 @@ justify-content:center;
         box-sizing: border-box;
     }
 }
+
+/* =====================================================
+   NSTV - PERBAIKAN LAYOUT DESKTOP
+   Menyeimbangkan ruang kiri dan kanan
+===================================================== */
+
+@media (min-width: 901px) {
+
+    .hero {
+        padding: 70px 0 55px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+
+    .hero-left {
+        padding-right: 20px;
+    }
+
+    .hero-left h1 {
+        font-size: 58px;
+        margin-bottom: 18px;
+    }
+
+    .hero-left p {
+        max-width: 560px;
+        font-size: 17px;
+    }
+
+    .hero-info {
+        gap: 12px;
+    }
+
+    .hero-info div {
+        min-width: 100px;
+    }
+
+    .hero-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .phone {
+        width: 280px;
+    }
+
+    /* Pastikan Download Versi Terbaru
+       tidak hanya menempati kolom kanan */
+    .latest-release-section {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 850px;
+        margin: 50px auto 40px;
+    }
+}
+
+
+/* =====================================================
+   NSTV - DESKTOP AGAR TIDAK TERLALU KOSONG
+===================================================== */
+
+@media (min-width: 901px) {
+
+    .hero-left {
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-right {
+        min-height: 360px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE - JANGAN UBAH TAMPILAN YANG SUDAH BAGUS
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .latest-release-section {
+        grid-column: auto;
+    }
+
+}
