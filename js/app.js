@@ -87,7 +87,7 @@ function loadLatestRelease() {
             // ==================================
 
             const versionElement =
-                document.getElementById("latest-version");
+                document.getElementById("app-version");
 
             if (versionElement) {
 
