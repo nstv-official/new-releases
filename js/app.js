@@ -9,7 +9,7 @@ const sourceUpdateUrl =
     "https://raw.githubusercontent.com/nstv-official/nstv/main/update_apk.json";
 
 const downloadReleaseBase =
-    "https://github.com/nstv-official/new-releases/releases/latest/download/";
+    "https://github.com/nstv-official/new-releases/releases/download/";
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("NSTV Website Loaded");
@@ -39,8 +39,9 @@ function loadLatestRelease() {
             }
 
             const apkFileName = getApkFileName(sourceDownloadUrl);
+            const releaseTag = `v${version}`;
             const downloadUrl = apkFileName
-                ? `${downloadReleaseBase}${encodeURIComponent(apkFileName)}`
+                ? `${downloadReleaseBase}${encodeURIComponent(releaseTag)}/${encodeURIComponent(apkFileName)}`
                 : sourceDownloadUrl;
 
             const versionElement = document.getElementById("app-version");
