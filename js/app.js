@@ -8,6 +8,9 @@ app.js
 const sourceUpdateUrl =
     "https://raw.githubusercontent.com/nstv-official/nstv/main/update_apk.json";
 
+const downloadReleaseBase =
+    "https://github.com/nstv-official/new-releases/releases/latest/download/";
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log("NSTV Website Loaded");
     loadLatestRelease();
@@ -27,13 +30,18 @@ function loadLatestRelease() {
             console.log("Data update NSTV:", data);
 
             const version = String(data.latestVersionName || "").replace(/^v/i, "");
-            const downloadUrl = data.updateUrl || "";
+            const sourceDownloadUrl = data.updateUrl || "";
             const releaseNotes = data.releaseNotes || "";
             const apkSizeBytes = Number(data.apkSizeBytes || 0);
 
-            if (!version || !downloadUrl) {
+            if (!version || !sourceDownloadUrl) {
                 throw new Error("Data versi atau URL APK tidak lengkap.");
             }
+
+            const apkFileName = getApkFileName(sourceDownloadUrl);
+            const downloadUrl = apkFileName
+                ? `${downloadReleaseBase}${encodeURIComponent(apkFileName)}`
+                : sourceDownloadUrl;
 
             const versionElement = document.getElementById("app-version");
             const latestVersion = document.getElementById("latest-version");
@@ -58,13 +66,14 @@ function loadLatestRelease() {
 
             document.querySelectorAll("[data-latest-download]").forEach(link => {
                 link.href = downloadUrl;
-                link.target = "_blank";
+                link.removeAttribute("target");
                 link.rel = "noopener noreferrer";
                 link.title = `Download NSTV v${version}`;
                 link.innerHTML = `⬇ Download NSTV v${version}`;
             });
 
-            console.log(`NSTV v${version} berhasil dimuat dari source of truth.`);
+            console.log(`NSTV v${version} siap diunduh dari GitHub Release.`);
+            console.log(`APK asset: ${downloadUrl}`);
         })
         .catch(error => {
             console.error("Error mengambil data update NSTV:", error);
@@ -77,6 +86,17 @@ function loadLatestRelease() {
             if (latestVersion) latestVersion.textContent = "-";
             if (sizeElement) sizeElement.textContent = "-";
         });
+}
+
+function getApkFileName(url) {
+    try {
+        const parsedUrl = new URL(url);
+        const name = decodeURIComponent(parsedUrl.pathname.split("/").pop() || "");
+        return name.endsWith(".apk") ? name : "";
+    } catch (error) {
+        console.error("URL APK tidak valid:", error);
+        return "";
+    }
 }
 
 function formatFileSize(bytes) {
