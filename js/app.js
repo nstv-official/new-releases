@@ -56,9 +56,7 @@ function loadLatestRelease() {
                 notesElement.hidden = false;
             }
 
-            const latestLinks = document.querySelectorAll("[data-latest-download]");
-
-            latestLinks.forEach(link => {
+            document.querySelectorAll("[data-latest-download]").forEach(link => {
                 link.href = downloadUrl;
                 link.target = "_blank";
                 link.rel = "noopener noreferrer";
@@ -77,23 +75,21 @@ function loadLatestRelease() {
 
             if (versionElement) versionElement.textContent = "Tidak tersedia";
             if (latestVersion) latestVersion.textContent = "-";
-            if (sizeElement) sizeElement.textContent = "Tidak tersedia";
+            if (sizeElement) sizeElement.textContent = "-";
         });
 }
 
 function formatFileSize(bytes) {
-    if (!Number.isFinite(bytes) || bytes <= 0) {
-        return "0 MB";
-    }
+    if (!Number.isFinite(bytes) || bytes <= 0) return "-";
 
     const mb = bytes / (1024 * 1024);
-
-    if (mb < 1) {
-        return `${(bytes / 1024).toFixed(0)} KB`;
-    }
-
+    if (mb < 1) return `${(bytes / 1024).toFixed(0)} KB`;
     return `${mb.toFixed(1)} MB`;
 }
+
+// ======================================
+// SLIDER SCREENSHOT
+// ======================================
 
 function initSlider() {
     const slides = document.querySelectorAll(".slide");
@@ -130,6 +126,10 @@ function initSlider() {
     }, 5000);
 }
 
+// ======================================
+// ANIMASI SAAT SCROLL
+// ======================================
+
 function initScrollAnimation() {
     const items = document.querySelectorAll(
         ".hero-card, .stat, .feature, .faq-item, .screens img"
@@ -157,6 +157,10 @@ function initScrollAnimation() {
     });
 }
 
+// ======================================
+// SMOOTH SCROLL
+// ======================================
+
 document.addEventListener("click", event => {
     const link = event.target.closest('a[href^="#"]');
     if (!link) return;
@@ -165,7 +169,6 @@ document.addEventListener("click", event => {
     if (!targetId || targetId === "#") return;
 
     const target = document.querySelector(targetId);
-
     if (target) {
         event.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
