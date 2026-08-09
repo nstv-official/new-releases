@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NSTV - Download APK Resmi</title>
     <link rel="icon" type="image/png" href="img/logo.png">
-
     <meta name="description" content="Download aplikasi NSTV versi terbaru secara resmi.">
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/layout-fix.css?v=2">
 </head>
@@ -20,10 +18,9 @@
                 <img src="img/logo.png" alt="NSTV Logo">
                 <span>NSTV</span>
             </div>
-
             <div class="menu">
                 <a href="#download">Download</a>
-                <a href="https://github.com/nstv-official/nstv" target="_blank">GitHub</a>
+                <a href="https://github.com/nstv-official/nstv" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
         </nav>
     </div>
@@ -33,15 +30,12 @@
     <div class="container hero-grid">
         <div class="hero-left">
             <h1>NSTV</h1>
-            <p>
-                Aplikasi Streaming TV Indonesia yang ringan,
-                cepat, gratis, dan selalu diperbarui.
-            </p>
+            <p>Aplikasi Streaming TV Indonesia yang ringan, cepat, gratis, dan selalu diperbarui.</p>
 
             <div class="hero-info">
                 <div>
                     <strong>Versi</strong>
-                    <span id="app-version">3.0.6</span>
+                    <span id="app-version">Memuat...</span>
                 </div>
                 <div>
                     <strong>Android</strong>
@@ -49,13 +43,11 @@
                 </div>
                 <div>
                     <strong>Ukuran</strong>
-                    <span>18 MB</span>
+                    <span id="latest-size">Memuat...</span>
                 </div>
             </div>
 
-            <a href="https://github.com/nstv-official/new-releases/releases/latest/download/NSTV_v3.0.6-release.apk" class="download-button" data-latest-download target="_blank" rel="noopener noreferrer">
-                ⬇ Download APK
-            </a>
+            <a href="#download" class="download-button">⬇ Download APK</a>
         </div>
 
         <div class="hero-right">
@@ -69,7 +61,7 @@
 <section class="stats">
     <div class="container">
         <div class="stat">
-            <h2 id="latest-version">3.0.6</h2>
+            <h2 id="latest-version">Memuat...</h2>
             <p>Versi</p>
         </div>
         <div class="stat">
@@ -115,14 +107,14 @@
     <div class="container">
         <h2>Screenshot Aplikasi</h2>
         <div class="slider">
-            <button class="nav prev">&#10094;</button>
+            <button class="nav prev" aria-label="Screenshot sebelumnya">&#10094;</button>
             <div class="slides">
                 <img src="img/screenshot1.jpg" class="slide active" alt="Screenshot NSTV 1">
                 <img src="img/screenshot2.jpg" class="slide" alt="Screenshot NSTV 2">
                 <img src="img/screenshot3.jpg" class="slide" alt="Screenshot NSTV 3">
                 <img src="img/screenshot4.jpg" class="slide" alt="Screenshot NSTV 4">
             </div>
-            <button class="nav next">&#10095;</button>
+            <button class="nav next" aria-label="Screenshot berikutnya">&#10095;</button>
         </div>
     </div>
 </section>
@@ -131,9 +123,14 @@
     <div class="container">
         <h2>Download Versi Terbaru</h2>
         <p>Klik tombol di bawah untuk mengunduh APK resmi NSTV.</p>
-        <a href="https://github.com/nstv-official/new-releases/releases/latest/download/NSTV_v3.0.6-release.apk" class="download-button" data-latest-download target="_blank" rel="noopener noreferrer">
+        <a href="#" class="download-button" data-latest-download target="_blank" rel="noopener noreferrer">
             ⬇ DOWNLOAD APK
         </a>
+
+        <div class="release-notes" id="release-notes" hidden>
+            <h3>Perubahan Terbaru</h3>
+            <p id="release-notes-text"></p>
+        </div>
     </div>
 </section>
 
@@ -171,14 +168,12 @@
                         <p>Tekan tombol <strong>Download APK</strong> di halaman ini dan tunggu sampai proses download selesai.</p>
                     </div>
                 </details>
-
                 <details>
                     <summary><span class="step-number">2</span>Buka file APK</summary>
                     <div class="guide-content">
                         <p>Setelah selesai, buka file APK NSTV dari notifikasi download atau folder <strong>Download</strong> di perangkat Anda.</p>
                     </div>
                 </details>
-
                 <details>
                     <summary><span class="step-number">3</span>Izinkan instalasi</summary>
                     <div class="guide-content">
@@ -186,7 +181,6 @@
                         <p>Setelah itu kembali ke proses instalasi dan tekan <strong>Install</strong>.</p>
                     </div>
                 </details>
-
                 <details>
                     <summary><span class="step-number">4</span>Jika muncul Play Protect</summary>
                     <div class="guide-content">
@@ -194,7 +188,6 @@
                         <p>Jika tersedia pilihan <strong>Pindai aplikasi</strong>, lakukan pemindaian terlebih dahulu dan ikuti petunjuk yang muncul di layar.</p>
                     </div>
                 </details>
-
                 <details>
                     <summary><span class="step-number">5</span>Selesai</summary>
                     <div class="guide-content">
@@ -219,6 +212,6 @@
     </div>
 </footer>
 
-<script src="js/app.js?v=4"></script>
+<script src="js/app.js?v=5"></script>
 </body>
 </html>
