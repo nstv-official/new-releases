@@ -12,6 +12,9 @@ app.js
 const sourceUpdateUrl =
     "https://raw.githubusercontent.com/nstv-official/nstv/main/update_apk.json";
 
+const sourceRepoApi =
+    "https://api.github.com/repos/nstv-official/nstv/contents/";
+
 
 // ======================================
 // SAAT HALAMAN SELESAI DIMUAT
@@ -38,13 +41,11 @@ function loadLatestRelease() {
         cache: "no-store"
     })
         .then(response => {
-
             if (!response.ok) {
                 throw new Error("Gagal mengambil update_apk.json dari repo utama.");
             }
 
             return response.json();
-
         })
         .then(data => {
 
@@ -74,13 +75,15 @@ function loadLatestRelease() {
             }
 
             // ==================================
-            // TAMPILKAN RELEASE NOTES JIKA ADA
+            // TAMPILKAN RELEASE NOTES
             // ==================================
 
             const notesElement = document.getElementById("release-notes");
+            const notesText = document.getElementById("release-notes-text");
 
-            if (notesElement && releaseNotes) {
-                notesElement.textContent = releaseNotes;
+            if (notesElement && notesText && releaseNotes) {
+                notesText.textContent = releaseNotes;
+                notesElement.hidden = false;
             }
 
             // ==================================
@@ -99,6 +102,12 @@ function loadLatestRelease() {
                 link.innerHTML = `⬇ Download NSTV v${version}`;
             });
 
+            // ==================================
+            // AMBIL UKURAN APK DARI REPO UTAMA
+            // ==================================
+
+            loadApkSize(downloadUrl);
+
             console.log(`NSTV v${version} berhasil dimuat dari source of truth.`);
 
         })
@@ -106,18 +115,99 @@ function loadLatestRelease() {
 
             console.error("Error mengambil data update NSTV:", error);
 
-            // Tetap gunakan link langsung ke update_apk.json sebagai cadangan.
-            const latestLinks = document.querySelectorAll(
-                "[data-latest-download]"
-            );
+            const versionElement = document.getElementById("app-version");
+            const latestVersion = document.getElementById("latest-version");
+            const sizeElement = document.getElementById("latest-size");
 
-            latestLinks.forEach(link => {
-                link.href = "https://github.com/nstv-official/nstv/blob/main/update_apk.json";
-                link.target = "_blank";
-                link.rel = "noopener noreferrer";
+            if (versionElement) {
+                versionElement.textContent = "Tidak tersedia";
+            }
+
+            if (latestVersion) {
+                latestVersion.textContent = "-";
+            }
+
+            if (sizeElement) {
+                sizeElement.textContent = "Tidak tersedia";
+            }
+        });
+
+}
+
+
+// ======================================
+// AMBIL UKURAN APK DARI GITHUB
+// ======================================
+
+function loadApkSize(downloadUrl) {
+
+    try {
+        const url = new URL(downloadUrl);
+        const match = url.pathname.match(/\/releases\/(.+)$/);
+
+        if (!match) {
+            throw new Error("Nama file APK tidak ditemukan dari URL.");
+        }
+
+        const apkPath = decodeURIComponent(match[0].replace(/^\//, ""));
+        const apiUrl = `${sourceRepoApi}${apkPath}`;
+
+        fetch(`${apiUrl}?t=${Date.now()}`, { cache: "no-store" })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil metadata APK.");
+                }
+
+                return response.json();
+            })
+            .then(file => {
+
+                const sizeElement = document.getElementById("latest-size");
+
+                if (sizeElement && typeof file.size === "number") {
+                    sizeElement.textContent = formatFileSize(file.size);
+                }
+
+            })
+            .catch(error => {
+                console.error("Gagal mengambil ukuran APK:", error);
+
+                const sizeElement = document.getElementById("latest-size");
+                if (sizeElement) {
+                    sizeElement.textContent = "-";
+                }
             });
 
-        });
+    } catch (error) {
+        console.error("URL APK tidak valid:", error);
+
+        const sizeElement = document.getElementById("latest-size");
+        if (sizeElement) {
+            sizeElement.textContent = "-";
+        }
+    }
+
+}
+
+
+// ======================================
+// FORMAT UKURAN FILE
+// ======================================
+
+function formatFileSize(bytes) {
+
+    if (!bytes || bytes <= 0) {
+        return "0 MB";
+    }
+
+    const mb = bytes / (1024 * 1024);
+
+    if (mb < 1) {
+        const kb = bytes / 1024;
+        return `${kb.toFixed(0)} KB`;
+    }
+
+    return `${mb.toFixed(1)} MB`;
 
 }
 
