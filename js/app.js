@@ -11,6 +11,9 @@ const sourceUpdateUrl =
 const downloadReleaseBase =
     "https://github.com/nstv-official/new-releases/releases/download/";
 
+const releaseApiBase =
+    "https://api.github.com/repos/nstv-official/new-releases/releases/tags/";
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log("NSTV Website Loaded");
     loadLatestRelease();
@@ -18,75 +21,108 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollAnimation();
 });
 
-function loadLatestRelease() {
-    fetch(`${sourceUpdateUrl}?t=${Date.now()}`, { cache: "no-store" })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Gagal mengambil update_apk.json dari repo utama.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Data update NSTV:", data);
-
-            const version = String(data.latestVersionName || "").replace(/^v/i, "");
-            const sourceDownloadUrl = data.updateUrl || "";
-            const releaseNotes = data.releaseNotes || "";
-            const apkSizeBytes = Number(data.apkSizeBytes || 0);
-
-            if (!version || !sourceDownloadUrl) {
-                throw new Error("Data versi atau URL APK tidak lengkap.");
-            }
-
-            const apkFileName = getApkFileName(sourceDownloadUrl);
-            const releaseTag = `v${version}`;
-            const downloadUrl = apkFileName
-                ? `${downloadReleaseBase}${encodeURIComponent(releaseTag)}/${encodeURIComponent(apkFileName)}`
-                : sourceDownloadUrl;
-
-            const versionElement = document.getElementById("app-version");
-            const latestVersion = document.getElementById("latest-version");
-            const sizeElement = document.getElementById("latest-size");
-
-            if (versionElement) versionElement.textContent = version;
-            if (latestVersion) latestVersion.textContent = version;
-
-            if (sizeElement) {
-                sizeElement.textContent = apkSizeBytes > 0
-                    ? formatFileSize(apkSizeBytes)
-                    : "-";
-            }
-
-            const notesElement = document.getElementById("release-notes");
-            const notesText = document.getElementById("release-notes-text");
-
-            if (notesElement && notesText && releaseNotes) {
-                notesText.textContent = releaseNotes;
-                notesElement.hidden = false;
-            }
-
-            document.querySelectorAll("[data-latest-download]").forEach(link => {
-                link.href = downloadUrl;
-                link.removeAttribute("target");
-                link.rel = "noopener noreferrer";
-                link.title = `Download NSTV v${version}`;
-                link.innerHTML = `⬇ Download NSTV v${version}`;
-            });
-
-            console.log(`NSTV v${version} siap diunduh dari GitHub Release.`);
-            console.log(`APK asset: ${downloadUrl}`);
-        })
-        .catch(error => {
-            console.error("Error mengambil data update NSTV:", error);
-
-            const versionElement = document.getElementById("app-version");
-            const latestVersion = document.getElementById("latest-version");
-            const sizeElement = document.getElementById("latest-size");
-
-            if (versionElement) versionElement.textContent = "Tidak tersedia";
-            if (latestVersion) latestVersion.textContent = "-";
-            if (sizeElement) sizeElement.textContent = "-";
+async function loadLatestRelease() {
+    try {
+        const response = await fetch(`${sourceUpdateUrl}?t=${Date.now()}`, {
+            cache: "no-store"
         });
+
+        if (!response.ok) {
+            throw new Error("Gagal mengambil update_apk.json dari repo utama.");
+        }
+
+        const data = await response.json();
+        console.log("Data update NSTV:", data);
+
+        const version = String(data.latestVersionName || "").replace(/^v/i, "");
+        const sourceDownloadUrl = data.updateUrl || "";
+        const releaseNotes = data.releaseNotes || "";
+        const fallbackApkSizeBytes = Number(data.apkSizeBytes || 0);
+
+        if (!version || !sourceDownloadUrl) {
+            throw new Error("Data versi atau URL APK tidak lengkap.");
+        }
+
+        const apkFileName = getApkFileName(sourceDownloadUrl);
+        const releaseTag = `v${version}`;
+        const downloadUrl = apkFileName
+            ? `${downloadReleaseBase}${encodeURIComponent(releaseTag)}/${encodeURIComponent(apkFileName)}`
+            : sourceDownloadUrl;
+
+        const versionElement = document.getElementById("app-version");
+        const latestVersion = document.getElementById("latest-version");
+        const sizeElement = document.getElementById("latest-size");
+
+        if (versionElement) versionElement.textContent = version;
+        if (latestVersion) latestVersion.textContent = version;
+
+        // Ambil ukuran APK langsung dari GitHub Release Asset.
+        // Jadi tidak bergantung pada apkSizeBytes di update_apk.json.
+        let apkSizeBytes = fallbackApkSizeBytes;
+
+        if (apkFileName) {
+            try {
+                const releaseResponse = await fetch(
+                    `${releaseApiBase}${encodeURIComponent(releaseTag)}`,
+                    { cache: "no-store" }
+                );
+
+                if (releaseResponse.ok) {
+                    const releaseData = await releaseResponse.json();
+                    const apkAsset = (releaseData.assets || []).find(
+                        asset => asset.name === apkFileName
+                    );
+
+                    if (apkAsset && Number(apkAsset.size) > 0) {
+                        apkSizeBytes = Number(apkAsset.size);
+                        console.log(
+                            `Ukuran APK dari GitHub Release: ${apkSizeBytes} bytes`
+                        );
+                    }
+                } else {
+                    console.warn("GitHub Release API tidak dapat diakses.");
+                }
+            } catch (error) {
+                console.warn("Gagal mengambil ukuran APK dari GitHub Release:", error);
+            }
+        }
+
+        if (sizeElement) {
+            sizeElement.textContent = apkSizeBytes > 0
+                ? formatFileSize(apkSizeBytes)
+                : "-";
+        }
+
+        const notesElement = document.getElementById("release-notes");
+        const notesText = document.getElementById("release-notes-text");
+
+        if (notesElement && notesText && releaseNotes) {
+            notesText.textContent = releaseNotes;
+            notesElement.hidden = false;
+        }
+
+        document.querySelectorAll("[data-latest-download]").forEach(link => {
+            link.href = downloadUrl;
+            link.removeAttribute("target");
+            link.rel = "noopener noreferrer";
+            link.title = `Download NSTV v${version}`;
+            link.innerHTML = `⬇ Download NSTV v${version}`;
+        });
+
+        console.log(`NSTV v${version} siap diunduh dari GitHub Release.`);
+        console.log(`APK asset: ${downloadUrl}`);
+
+    } catch (error) {
+        console.error("Error mengambil data update NSTV:", error);
+
+        const versionElement = document.getElementById("app-version");
+        const latestVersion = document.getElementById("latest-version");
+        const sizeElement = document.getElementById("latest-size");
+
+        if (versionElement) versionElement.textContent = "Tidak tersedia";
+        if (latestVersion) latestVersion.textContent = "-";
+        if (sizeElement) sizeElement.textContent = "-";
+    }
 }
 
 function getApkFileName(url) {
