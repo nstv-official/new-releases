@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saran & Kritik - NSTV Official</title>
+    <meta name="description" content="Kirim saran, kritik, atau laporan masalah kepada developer NSTV.">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .feedback-page{padding:45px 0 70px}.feedback-card{max-width:680px;margin:auto;background:#1e293b;border-radius:22px;padding:28px;box-shadow:0 15px 40px rgba(0,0,0,.3)}
+        .feedback-card h1{font-size:32px;margin-bottom:10px}.feedback-card>p{color:#cbd5e1;margin-bottom:28px}.form-group{margin-bottom:18px}.form-group label{display:block;font-weight:bold;margin-bottom:8px}.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 15px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:#111827;color:#fff;font:inherit;outline:none}.form-group textarea{min-height:150px;resize:vertical}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#22c55e}.required-note{font-size:13px;color:#94a3b8;margin-bottom:20px}.feedback-submit{width:100%;border:0;background:#22c55e;color:#fff;padding:16px;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer}.feedback-submit:hover{background:#16a34a}.back-link{display:block;text-align:center;margin-top:22px;color:#22c55e;text-decoration:none}.privacy-note{font-size:13px;color:#94a3b8;margin-top:18px;text-align:center}
+        @media(max-width:600px){.feedback-page{padding:30px 0 50px}.feedback-card{padding:22px}.feedback-card h1{font-size:28px}}
+    </style>
+</head>
+<body>
+<header><div class="container"><nav><a class="logo" href="index.html" style="text-decoration:none;color:#fff"><img src="img/logo.png" alt="NSTV Logo"><span>NSTV</span></a></nav></div></header>
+<section class="feedback-page"><div class="container"><div class="feedback-card">
+    <h1>💬 Saran & Kritik NSTV</h1>
+    <p>Punya saran, kritik, atau menemukan masalah di NSTV? Sampaikan kepada kami. Masukan kamu membantu pengembangan NSTV.</p>
+    <form action="https://formspree.io/f/moealabl" method="POST">
+        <div class="form-group"><label for="name">Nama <span style="color:#94a3b8">(opsional)</span></label><input id="name" name="name" type="text" placeholder="Nama kamu"></div>
+        <div class="form-group"><label for="email">Email <span style="color:#94a3b8">(opsional)</span></label><input id="email" name="email" type="email" placeholder="email@contoh.com"></div>
+        <div class="form-group"><label for="category">Jenis pesan</label><select id="category" name="category" required><option value="">Pilih jenis pesan</option><option>Saran</option><option>Kritik</option><option>Laporan masalah</option><option>Masalah streaming</option><option>Lainnya</option></select></div>
+        <div class="form-group"><label for="message">Pesan</label><textarea id="message" name="message" placeholder="Tulis saran, kritik, atau masalah yang kamu alami..." required></textarea></div>
+        <input type="hidden" name="_subject" value="Saran & Kritik NSTV">
+        <p class="required-note">* Kategori dan pesan wajib diisi.</p>
+        <button class="feedback-submit" type="submit">📨 Kirim Pesan</button>
+    </form>
+    <p class="privacy-note">Email hanya digunakan agar developer dapat menanggapi pesan jika diperlukan.</p>
+    <a class="back-link" href="index.html">← Kembali ke halaman NSTV</a>
+</div></div></section>
+<footer><div class="container"><p>© 2026 NSTV Official</p><p>Website download resmi NSTV.</p></div></footer>
+</body>
+</html>
