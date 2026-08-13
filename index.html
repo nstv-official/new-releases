@@ -8,6 +8,9 @@
     <meta name="description" content="Download aplikasi NSTV versi terbaru secara resmi.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/layout-fix.css?v=2">
+    <style>
+        .community-section{padding:20px 0 70px}.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.community-card{display:block;text-decoration:none;color:#fff;background:#1e293b;border-radius:18px;padding:24px;text-align:center;border:1px solid rgba(255,255,255,.06);transition:.25s}.community-card:hover{transform:translateY(-4px);border-color:#22c55e}.community-icon{font-size:34px;margin-bottom:8px}.community-card h3{margin-bottom:6px}.community-card p{color:#cbd5e1;margin:0}.community-card.feedback{border-color:rgba(34,197,94,.35)}@media(max-width:600px){.community-section{padding:5px 0 50px}.community-grid{grid-template-columns:1fr}.community-card{padding:22px}}
+    </style>
 </head>
 <body>
 
@@ -31,51 +34,23 @@
         <div class="hero-left">
             <h1>NSTV</h1>
             <p>Aplikasi Streaming TV Indonesia yang ringan, cepat, gratis, dan selalu diperbarui.</p>
-
             <div class="hero-info">
-                <div>
-                    <strong>Versi</strong>
-                    <span id="app-version">Memuat...</span>
-                </div>
-                <div>
-                    <strong>Android</strong>
-                    <span>7.0+</span>
-                </div>
-                <div>
-                    <strong>Ukuran</strong>
-                    <span id="latest-size">Memuat...</span>
-                </div>
+                <div><strong>Versi</strong><span id="app-version">Memuat...</span></div>
+                <div><strong>Android</strong><span>7.0+</span></div>
+                <div><strong>Ukuran</strong><span id="latest-size">Memuat...</span></div>
             </div>
-
             <a href="#download" class="download-button">⬇ Download APK</a>
         </div>
-
-        <div class="hero-right">
-            <div class="phone">
-                <img src="img/screenshot1.jpg" id="hero-image" alt="Tampilan aplikasi NSTV">
-            </div>
-        </div>
+        <div class="hero-right"><div class="phone"><img src="img/screenshot1.jpg" id="hero-image" alt="Tampilan aplikasi NSTV"></div></div>
     </div>
 </section>
 
 <section class="stats">
     <div class="container">
-        <div class="stat">
-            <h2 id="latest-version">Memuat...</h2>
-            <p>Versi</p>
-        </div>
-        <div class="stat">
-            <h2>7+</h2>
-            <p>Android</p>
-        </div>
-        <div class="stat">
-            <h2>Gratis</h2>
-            <p>Lisensi</p>
-        </div>
-        <div class="stat">
-            <h2 id="download-count">Memuat...</h2>
-            <p>Download</p>
-        </div>
+        <div class="stat"><h2 id="latest-version">Memuat...</h2><p>Versi</p></div>
+        <div class="stat"><h2>7+</h2><p>Android</p></div>
+        <div class="stat"><h2>Gratis</h2><p>Lisensi</p></div>
+        <div class="stat"><h2 id="download-count">Memuat...</h2><p>Download</p></div>
     </div>
 </section>
 
@@ -83,22 +58,10 @@
     <div class="container">
         <h2>Fitur Unggulan</h2>
         <div class="feature-grid">
-            <div class="feature">
-                <h3>📺 TV Nasional</h3>
-                <p>Nikmati berbagai channel TV Indonesia.</p>
-            </div>
-            <div class="feature">
-                <h3>⚡ Ringan</h3>
-                <p>Aplikasi cepat dan hemat memori.</p>
-            </div>
-            <div class="feature">
-                <h3>❤️ Favorit</h3>
-                <p>Simpan channel favorit Anda.</p>
-            </div>
-            <div class="feature">
-                <h3>🔍 Pencarian</h3>
-                <p>Cari channel lebih cepat.</p>
-            </div>
+            <div class="feature"><h3>📺 TV Nasional</h3><p>Nikmati berbagai channel TV Indonesia.</p></div>
+            <div class="feature"><h3>⚡ Ringan</h3><p>Aplikasi cepat dan hemat memori.</p></div>
+            <div class="feature"><h3>❤️ Favorit</h3><p>Simpan channel favorit Anda.</p></div>
+            <div class="feature"><h3>🔍 Pencarian</h3><p>Cari channel lebih cepat.</p></div>
         </div>
     </div>
 </section>
@@ -123,13 +86,24 @@
     <div class="container">
         <h2>Download Versi Terbaru</h2>
         <p>Klik tombol di bawah untuk mengunduh APK resmi NSTV.</p>
-        <a href="#" class="download-button" data-latest-download rel="noopener noreferrer">
-            ⬇ DOWNLOAD APK
-        </a>
+        <a href="#" class="download-button" data-latest-download rel="noopener noreferrer">⬇ DOWNLOAD APK</a>
+        <div class="release-notes" id="release-notes" hidden><h3>Perubahan Terbaru</h3><p id="release-notes-text"></p></div>
+    </div>
+</section>
 
-        <div class="release-notes" id="release-notes" hidden>
-            <h3>Perubahan Terbaru</h3>
-            <p id="release-notes-text"></p>
+<section class="community-section">
+    <div class="container">
+        <div class="community-grid">
+            <a class="community-card feedback" href="feedback.html">
+                <div class="community-icon">💬</div>
+                <h3>Saran & Kritik</h3>
+                <p>Kirim masukan atau laporkan masalah kepada developer NSTV.</p>
+            </a>
+            <a class="community-card" href="support.html">
+                <div class="community-icon">☕</div>
+                <h3>Traktir Kopi</h3>
+                <p>Dukung pengembangan NSTV secara sukarela.</p>
+            </a>
         </div>
     </div>
 </section>
@@ -137,79 +111,27 @@
 <section class="faq">
     <div class="container">
         <h2>Pertanyaan Umum</h2>
-        <div class="faq-item">
-            <h3>Apakah NSTV gratis?</h3>
-            <p>Ya. NSTV dapat digunakan secara gratis.</p>
-        </div>
-        <div class="faq-item">
-            <h3>Apakah aman?</h3>
-            <p>Ya. Download hanya melalui halaman resmi ini.</p>
-        </div>
-        <div class="faq-item">
-            <h3>Minimal Android?</h3>
-            <p>Android 7.0 atau lebih baru.</p>
-        </div>
+        <div class="faq-item"><h3>Apakah NSTV gratis?</h3><p>Ya. NSTV dapat digunakan secara gratis.</p></div>
+        <div class="faq-item"><h3>Apakah aman?</h3><p>Ya. Download hanya melalui halaman resmi ini.</p></div>
+        <div class="faq-item"><h3>Minimal Android?</h3><p>Android 7.0 atau lebih baru.</p></div>
     </div>
 </section>
 
 <footer>
     <section class="install-guide" id="panduan">
         <div class="container">
-            <div class="guide-header">
-                <span class="guide-badge">📱 Panduan</span>
-                <h2>Cara Download & Instal NSTV</h2>
-                <p>Ikuti langkah berikut untuk memasang aplikasi NSTV di perangkat Android Anda.</p>
-            </div>
-
+            <div class="guide-header"><span class="guide-badge">📱 Panduan</span><h2>Cara Download & Instal NSTV</h2><p>Ikuti langkah berikut untuk memasang aplikasi NSTV di perangkat Android Anda.</p></div>
             <div class="guide-box">
-                <details open>
-                    <summary><span class="step-number">1</span>Download APK NSTV</summary>
-                    <div class="guide-content">
-                        <p>Tekan tombol <strong>Download APK</strong> di halaman ini dan tunggu sampai proses download selesai.</p>
-                    </div>
-                </details>
-                <details>
-                    <summary><span class="step-number">2</span>Buka file APK</summary>
-                    <div class="guide-content">
-                        <p>Setelah selesai, buka file APK NSTV dari notifikasi download atau folder <strong>Download</strong> di perangkat Anda.</p>
-                    </div>
-                </details>
-                <details>
-                    <summary><span class="step-number">3</span>Izinkan instalasi</summary>
-                    <div class="guide-content">
-                        <p>Jika Android menampilkan pesan bahwa instalasi dari sumber ini tidak diizinkan, pilih <strong>Pengaturan</strong>, lalu aktifkan <strong>Izinkan dari sumber ini</strong> untuk browser atau aplikasi yang digunakan untuk membuka APK.</p>
-                        <p>Setelah itu kembali ke proses instalasi dan tekan <strong>Install</strong>.</p>
-                    </div>
-                </details>
-                <details>
-                    <summary><span class="step-number">4</span>Jika muncul Play Protect</summary>
-                    <div class="guide-content">
-                        <p>Android dapat memeriksa aplikasi yang dipasang dari luar Google Play menggunakan <strong>Google Play Protect</strong>.</p>
-                        <p>Jika tersedia pilihan <strong>Pindai aplikasi</strong>, lakukan pemindaian terlebih dahulu dan ikuti petunjuk yang muncul di layar.</p>
-                    </div>
-                </details>
-                <details>
-                    <summary><span class="step-number">5</span>Selesai</summary>
-                    <div class="guide-content">
-                        <p>Setelah instalasi selesai, buka aplikasi <strong>NSTV</strong> dari layar utama perangkat Anda.</p>
-                    </div>
-                </details>
+                <details open><summary><span class="step-number">1</span>Download APK NSTV</summary><div class="guide-content"><p>Tekan tombol <strong>Download APK</strong> di halaman ini dan tunggu sampai proses download selesai.</p></div></details>
+                <details><summary><span class="step-number">2</span>Buka file APK</summary><div class="guide-content"><p>Setelah selesai, buka file APK NSTV dari notifikasi download atau folder <strong>Download</strong> di perangkat Anda.</p></div></details>
+                <details><summary><span class="step-number">3</span>Izinkan instalasi</summary><div class="guide-content"><p>Jika Android menampilkan pesan bahwa instalasi dari sumber ini tidak diizinkan, pilih <strong>Pengaturan</strong>, lalu aktifkan <strong>Izinkan dari sumber ini</strong> untuk browser atau aplikasi yang digunakan untuk membuka APK.</p><p>Setelah itu kembali ke proses instalasi dan tekan <strong>Install</strong>.</p></div></details>
+                <details><summary><span class="step-number">4</span>Jika muncul Play Protect</summary><div class="guide-content"><p>Android dapat memeriksa aplikasi yang dipasang dari luar Google Play menggunakan <strong>Google Play Protect</strong>.</p><p>Jika tersedia pilihan <strong>Pindai aplikasi</strong>, lakukan pemindaian terlebih dahulu dan ikuti petunjuk yang muncul di layar.</p></div></details>
+                <details><summary><span class="step-number">5</span>Selesai</summary><div class="guide-content"><p>Setelah instalasi selesai, buka aplikasi <strong>NSTV</strong> dari layar utama perangkat Anda.</p></div></details>
             </div>
-
-            <div class="security-note">
-                <div class="security-icon">🛡️</div>
-                <div>
-                    <strong>Tips Keamanan</strong>
-                    <p>Gunakan APK hanya dari halaman download resmi NSTV. Jangan mengunduh APK dari link atau situs yang tidak Anda kenal. Sebaiknya tetap aktifkan Google Play Protect untuk membantu menjaga keamanan perangkat.</p>
-                </div>
-            </div>
+            <div class="security-note"><div class="security-icon">🛡️</div><div><strong>Tips Keamanan</strong><p>Gunakan APK hanya dari halaman download resmi NSTV. Jangan mengunduh APK dari link atau situs yang tidak Anda kenal. Sebaiknya tetap aktifkan Google Play Protect untuk membantu menjaga keamanan perangkat.</p></div></div>
         </div>
     </section>
-
-    <div class="container">
-        <p>© 2026 NSTV Official</p>
-        <p>Website download resmi NSTV.</p>
-    </div>
+    <div class="container"><p>© 2026 NSTV Official</p><p>Website download resmi NSTV.</p></div>
 </footer>
 
 <script src="js/app.js?v=8"></script>
